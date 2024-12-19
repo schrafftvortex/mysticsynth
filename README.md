@@ -1,0 +1,2 @@
+# mysticsynth
+mysticsynth blog

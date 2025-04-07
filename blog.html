@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mystic Synth - The website you wish you visited 20 years ago.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display&display=swap" rel="stylesheet">
+  <title>Blog | Mystic Synth</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="hero">
+            <h1>Welcome to Mystic Synth</h1>
+            <p>Endless searching.</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="mymusic.html">My Music</a></li>
+                <li><a href="links.html">Links</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="charts.html">Charts</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="blog-controls">
+            <!-- Category Filtering -->
+            <form name="radio_group_type">
+                <label>Sort by Category:</label>
+                <input type="radio" name="construct_group" value="all" checked> All Posts
+                <input type="radio" name="construct_group" value="best"> Best
+                <input type="radio" name="construct_group" value="album_recs"> Album Recommendations
+                <input type="radio" name="construct_group" value="life"> Life
+                <input type="radio" name="construct_group" value="philosophy"> Philosophy
+                <input type="radio" name="construct_group" value="gaming"> Gaming
+                <input type="radio" name="construct_group" value="movies"> Movies
+            </form>
+
+            <!-- Date Sorting -->
+            <form name="radio_group_sort">
+                <label>Sort by Date:</label>
+                <input type="radio" name="construct_group" value="newtoold" checked> New to Old
+                <input type="radio" name="construct_group" value="oldtonew"> Old to New
+            </form>
+        </section>
+
+        <div id="blog_construct_div"></div>
+
+    </main>
+
+
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mystic Synth</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/blogscripts.js"></script> <!-- Updated to link to the correct JS file -->
+</body>
+</html>

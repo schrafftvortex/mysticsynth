@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretty Photos</title>
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Path to your CSS -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="hero">
+            <h1>Welcome to Mystic Synth</h1>
+            <p>The void can paint too.</p>
+        </div>
+        <nav>
+            <ul>
+               <li><a href="../index.html">Home</a></li>
+               <li><a href="../about.html">About</a></li>
+               <li><a href="../mymusic.html">My Music</a></li>
+               <li><a href="../links.html">Links</a></li>
+               <li><a href="../gallery.html">Gallery</a></li>
+               <li><a href="../charts.html">Charts</a></li>
+               <li><a href="../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Back Button and Album Title -->
+        <div class="album-header">
+            <a href="../gallery.html" class="back-button">&larr; Back to Gallery</a>
+            <h2 class="album-title">Pretty Photos</h2>
+        </div>
+
+        <!-- Current Photo Display -->
+        <section class="photo-viewer">
+            <div class="current-photo">
+                <img id="current-photo" 
+                     src="../gallery/pretty-photos/photo1.jpg" 
+                     alt="Beautiful landscape photo" 
+                     title="Beautiful landscape photo">
+            </div>
+            <p id="photo-caption">I love end of day silhouettes.</p>
+        </section>
+
+        <!-- Thumbnails Section -->
+        <section class="thumbnails">
+            <img class="thumbnail" 
+                 src="../gallery/pretty-photos/photo1-thumb.jpg" 
+                 alt="Landscape thumbnail 1" 
+                 title="Landscape thumbnail 1" 
+                 onclick="changePhoto('../gallery/pretty-photos/photo1.jpg', 'I love end of day silhouettes.')">
+
+            <img class="thumbnail" 
+                 src="../gallery/pretty-photos/photo2-thumb.jpg" 
+                 alt="Landscape thumbnail 2" 
+                 title="Landscape thumbnail 2" 
+                 onclick="changePhoto('../gallery/pretty-photos/photo2.jpg', 'My indoor meditation spot.')">
+
+            <img class="thumbnail" 
+                 src="../gallery/pretty-photos/photo3-thumb.jpg" 
+                 alt="Landscape thumbnail 3" 
+                 title="Landscape thumbnail 3" 
+                 onclick="changePhoto('../gallery/pretty-photos/photo3.jpg', 'A local lake that has not yet been drained.')">
+
+            <img class="thumbnail" 
+                 src="../gallery/pretty-photos/photo4-thumb.jpg" 
+                 alt="Landscape thumbnail 4" 
+                 title="Landscape thumbnail 4" 
+                 onclick="changePhoto('../gallery/pretty-photos/photo4.jpg', 'Sunday on the Cape.')">
+
+            <img class="thumbnail" 
+                 src="../gallery/pretty-photos/photo5-thumb.jpg" 
+                 alt="Landscape thumbnail 5" 
+                 title="Landscape thumbnail 5" 
+                 onclick="changePhoto('../gallery/pretty-photos/photo5.jpg', 'Aug 11, 2023. Was very blissed out for 4 hours that day. This was at the local frisbee golf course.')">
+
+                 <img class="thumbnail" 
+     src="../gallery/pretty-photos/photo6-thumb.jpg" 
+     alt="Landscape thumbnail 6" 
+     title="Landscape thumbnail 6" 
+     onclick="changePhoto('../gallery/pretty-photos/photo6.jpg', 'Path near a local pond. I want a shitty 90s CGI render of this.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo7-thumb.jpg" 
+     alt="Landscape thumbnail 7" 
+     title="Landscape thumbnail 7" 
+     onclick="changePhoto('../gallery/pretty-photos/photo7.jpg', 'Same pond. Those days felt magical.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo8-thumb.jpg" 
+     alt="Landscape thumbnail 8" 
+     title="Landscape thumbnail 8" 
+     onclick="changePhoto('../gallery/pretty-photos/photo8.jpg', 'Boston Common. The last day of my old job. Felt utterly magical.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo9-thumb.jpg" 
+     alt="Landscape thumbnail 9" 
+     title="Landscape thumbnail 9" 
+     onclick="changePhoto('../gallery/pretty-photos/photo9.jpg', 'Same day. I remember coming here so stressed in college. Felt nice to feel totally free.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo10-thumb.jpg" 
+     alt="Landscape thumbnail 10" 
+     title="Landscape thumbnail 10" 
+     onclick="changePhoto('../gallery/pretty-photos/photo10.jpg', 'The color pallette of the woods is unreal, regardless of season.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo11-thumb.jpg" 
+     alt="Landscape thumbnail 11" 
+     title="Landscape thumbnail 11" 
+     onclick="changePhoto('../gallery/pretty-photos/photo11.jpg', 'I often feel like we live in a painting.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo12-thumb.jpg" 
+     alt="Landscape thumbnail 12" 
+     title="Landscape thumbnail 12" 
+     onclick="changePhoto('../gallery/pretty-photos/photo12.jpg', 'Open your eyes and you will realise its a dream.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo13-thumb.jpg" 
+     alt="Landscape thumbnail 13" 
+     title="Landscape thumbnail 13" 
+     onclick="changePhoto('../gallery/pretty-photos/photo13.jpg', 'My parents. <3')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo14-thumb.jpg" 
+     alt="Landscape thumbnail 14" 
+     title="Landscape thumbnail 14" 
+     onclick="changePhoto('../gallery/pretty-photos/photo14.jpg', 'Nov 5, 2023. The day I thought I understood Ananda in Advaita Vedanta philosophy and could *apply* it. Silly.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo15-thumb.jpg" 
+     alt="Landscape thumbnail 15" 
+     title="Landscape thumbnail 15" 
+     onclick="changePhoto('../gallery/pretty-photos/photo15.jpg', 'The coffee shop in Richmond Erin took me too maybe 5 or so times now. I have a polaroid from here, though I think this is from my second visit to Richmond from July 2024.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo16-thumb.jpg" 
+     alt="Landscape thumbnail 16" 
+     title="Landscape thumbnail 16" 
+     onclick="changePhoto('../gallery/pretty-photos/photo16.jpg', 'Skybox.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo17-thumb.jpg" 
+     alt="Landscape thumbnail 17" 
+     title="Landscape thumbnail 17" 
+     onclick="changePhoto('../gallery/pretty-photos/photo17.jpg', 'Glad there is still woods here.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo18-thumb.jpg" 
+     alt="Landscape thumbnail 18" 
+     title="Landscape thumbnail 18" 
+     onclick="changePhoto('../gallery/pretty-photos/photo18.jpg', 'Bridge over Telsa factory from the commuter rail at sunset.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo19-thumb.jpg" 
+     alt="Landscape thumbnail 19" 
+     title="Landscape thumbnail 19" 
+     onclick="changePhoto('../gallery/pretty-photos/photo19.jpg', 'Overgrown Richmond backyard at el caso de Erin. Legitimately made me grapple with the amount of power it would take to render this backyard to the degree of specificity it has, let alone the entire cosmos. Real wrestling with God moment.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo20-thumb.jpg" 
+     alt="Landscape thumbnail 20" 
+     title="Landscape thumbnail 20" 
+     onclick="changePhoto('../gallery/pretty-photos/photo20.jpg', 'Sunset in 2019.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo21-thumb.jpg" 
+     alt="Landscape thumbnail 21" 
+     title="Landscape thumbnail 21" 
+     onclick="changePhoto('../gallery/pretty-photos/photo21.jpg', 'Quar Life (2020) album art.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo22-thumb.jpg" 
+     alt="Landscape thumbnail 22" 
+     title="Landscape thumbnail 22" 
+     onclick="changePhoto('../gallery/pretty-photos/photo22.jpg', 'Good to remember skies have been gorgeous long before this body was around the recognize them.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo23-thumb.jpg" 
+     alt="Landscape thumbnail 23" 
+     title="Landscape thumbnail 23" 
+     onclick="changePhoto('../gallery/pretty-photos/photo23.jpg', 'Random old, rusty truck in October 2022. I looked in the hatch and it had a milk crate full of mushrooms, but not that kind.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo24-thumb.jpg" 
+     alt="Landscape thumbnail 24" 
+     title="Landscape thumbnail 24" 
+     onclick="changePhoto('../gallery/pretty-photos/photo24.jpg', 'The woods feels so lively. It is kinda cliche but this is kinda my temple.')">
+
+<img class="thumbnail" 
+     src="../gallery/pretty-photos/photo25-thumb.jpg" 
+     alt="Landscape thumbnail 25" 
+     title="Landscape thumbnail 25" 
+     onclick="changePhoto('../gallery/pretty-photos/photo25.jpg', 'Seeing this IRL made me feel like I was living in a JRPG.')">
+
+            <!-- Add more thumbnails as needed -->
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Mystic Synth</p>
+    </footer>
+
+    <!-- JavaScript for Photo Interaction -->
+    <script>
+        function changePhoto(imagePath, captionText) {
+            const currentPhoto = document.getElementById('current-photo');
+            const caption = document.getElementById('photo-caption');
+            currentPhoto.src = imagePath;
+            currentPhoto.alt = captionText;
+            currentPhoto.title = captionText;
+            caption.textContent = captionText;
+        }
+    </script>
+</body>
+</html>

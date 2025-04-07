@@ -35,21 +35,38 @@
             <!-- Category Filtering -->
             <form name="radio_group_type">
                 <label>Sort by Category:</label>
-                <input type="radio" name="construct_group" value="all" checked> All Posts
-                <input type="radio" name="construct_group" value="best"> Best
-                <input type="radio" name="construct_group" value="album_recs"> Album Recommendations
-                <input type="radio" name="construct_group" value="life"> Life
-                <input type="radio" name="construct_group" value="philosophy"> Philosophy
-                <input type="radio" name="construct_group" value="gaming"> Gaming
-                <input type="radio" name="construct_group" value="movies"> Movies
+                <div class="radio-option">
+                    <input type="radio" name="construct_group" value="all" checked> All Posts
+                </div>
+                <div class="radio-option">
+                    <input type="radio" name="construct_group" value="best"> Best
+                </div>
+                <div class="radio-option">
+                    <input type="radio" name="construct_group" value="album_recs"> Album Recommendations
+                </div>
+                <div class="radio-option">
+                    <input type="radio" name="construct_group" value="life"> Life
+                </div>
+                <div class="radio-option">
+                    <input type="radio" name="construct_group" value="philosophy"> Philosophy
+                </div>
+                <div class="radio-option">
+                    <input type="radio" name="construct_group" value="gaming"> Gaming
+                </div>
+                <div class="radio-option">
+                    <input type="radio" name="construct_group" value="movies"> Movies
+                </div>
             </form>
-
-            <!-- Date Sorting -->
+            
             <form name="radio_group_sort">
-                <label>Sort by Date:</label>
-                <input type="radio" name="construct_group" value="newtoold" checked> New to Old
-                <input type="radio" name="construct_group" value="oldtonew"> Old to New
-            </form>
+                <label><br>Sort by Date:</label>
+                <div class="radio-option">
+                    <input type="radio" name="construct_group" value="newtoold" checked> New to Old
+                </div>
+                <div class="radio-option">
+                    <input type="radio" name="construct_group" value="oldtonew"> Old to New
+                </div>
+            </form>            
         </section>
 
         <div id="blog_construct_div"></div>

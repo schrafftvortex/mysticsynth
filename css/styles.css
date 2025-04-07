@@ -846,3 +846,10 @@ figure {
     font-weight: bold;
     font-size: 1.25em; /* Adjust size as needed */
 }
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* space between radio button and text */
+    margin-bottom: 5px;
+}

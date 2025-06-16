@@ -37,22 +37,6 @@ const page_listing = {
         var: "4", 
         category: "life" 
     },
-    "post5": { 
-        title: "The Best Movies of the Year", 
-        link: "movies-review.html", 
-        displaynum: "005", 
-        date: "2024-12-05 09:00 AM", 
-        var: "2", 
-        category: "movies" 
-    },
-    "post6": { 
-        title: "Mystic Thoughts on Philosophy", 
-        link: "mystic-philosophy.html", 
-        displaynum: "006", 
-        date: "2024-12-06 01:30 PM", 
-        var: "1", 
-        category: "philosophy" 
-    }
 };
 
 let included_pages = [];

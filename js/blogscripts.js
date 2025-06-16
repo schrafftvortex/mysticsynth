@@ -28,13 +28,13 @@ const page_listing = {
         var: "1", 
         category: "philosophy" 
     },
-    "post4": { 
-        title: "Gaming in 2024", 
-        link: "gaming-article.html", 
+    "004": { 
+        title: "Only 6 Months later", 
+        link: "blog/blog004.html", 
         displaynum: "004", 
-        date: "2024-12-04 03:45 PM", 
-        var: "3", 
-        category: "gaming" 
+        date: "2025-06-16 06:12 PM", 
+        var: "4", 
+        category: "life" 
     },
     "post5": { 
         title: "The Best Movies of the Year", 
@@ -237,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Winter Solstice Web Development", url: "blog/blog001.html", category: "life", date: "2024-12-21" },
         { title: "Album Rec: Blue Mena's Multi Adolescence", url: "blog/blog002.html", category: "album_recs", date: "2024-12-21" },
         { title: "Basics of Clay Pot Metaphysics", url: "blog/blog003.html", category: "philosophy", date: "2024-12-21" },
+        { title: "Only 6 Months later", url: "blog/blog004.html", category: "life", date: "2025-06-16" },
         
         // Add more blog posts here
     ];

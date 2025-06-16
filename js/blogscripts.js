@@ -100,15 +100,18 @@ const createBlogConstruct = function (sortVar = "", numVar = 0) {
         num_pages = numVar;
     }
 
-    // Create new array containing content of included_pages, but with a new reference
-let sent_pages = [...included_pages];
+     // Create new array containing content of included_pages, but with a new reference
+    let sent_pages = [...included_pages];
 
-// Sort by actual date string
-sent_pages.sort((a, b) => {
-    const dateA = new Date(page_listing[a].date);
-    const dateB = new Date(page_listing[b].date);
-    return page_sort === "1" ? dateA - dateB : dateB - dateA;
-});
+    // Sort by actual date
+    sent_pages.sort((a, b) => {
+        const dateA = new Date(page_listing[a].date);
+        const dateB = new Date(page_listing[b].date);
+        return page_sort === "1" ? dateA - dateB : dateB - dateA;
+    });
+
+    // 🔍 Add this line right here:
+    console.log("Included pages:", sent_pages);
 
 
 

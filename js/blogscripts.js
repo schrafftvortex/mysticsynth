@@ -25,7 +25,7 @@ const page_listing = {
         displaynum: "003", 
         date: "2024-12-21 02:18 PM", 
         excerpt: "I talk about how an ancient invention can help you",
-        var: "1", 
+        var: "3", 
         category: "philosophy" 
     },
     "004": { 
@@ -33,6 +33,7 @@ const page_listing = {
         link: "blog/blog004.html", 
         displaynum: "004", 
         date: "2025-06-16 06:12 PM", 
+        excerpt: "Lowkey I forgot a had a blog oops",
         var: "4", 
         category: "life" 
     },
@@ -100,12 +101,16 @@ const createBlogConstruct = function (sortVar = "", numVar = 0) {
     }
 
     // Create new array containing content of included_pages, but with a new reference
-    let sent_pages = [...included_pages];
+let sent_pages = [...included_pages];
 
-    // Apply sorting
-    if (page_sort === "1") {
-        sent_pages.reverse();
-    }
+// Sort by actual date string
+sent_pages.sort((a, b) => {
+    const dateA = new Date(page_listing[a].date);
+    const dateB = new Date(page_listing[b].date);
+    return page_sort === "1" ? dateA - dateB : dateB - dateA;
+});
+
+
 
     // Create pages from the sent_pages array, up to the num_pages limit
     let pages_made = 0;
@@ -232,73 +237,4 @@ for (let radio of radios_group_sort) {
 // Initialize blog feed with all posts
 createBlogConstruct("all", 0);
 
-document.addEventListener('DOMContentLoaded', () => {
-    const blogPosts = [
-        { title: "Winter Solstice Web Development", url: "blog/blog001.html", category: "life", date: "2024-12-21" },
-        { title: "Album Rec: Blue Mena's Multi Adolescence", url: "blog/blog002.html", category: "album_recs", date: "2024-12-21" },
-        { title: "Basics of Clay Pot Metaphysics", url: "blog/blog003.html", category: "philosophy", date: "2024-12-21" },
-        { title: "Only 6 Months later", url: "blog/blog004.html", category: "life", date: "2025-06-16" },
-        
-        // Add more blog posts here
-    ];
 
-    // Function to display posts
-    function displayPosts(posts) {
-        const blogDiv = document.getElementById('blog_construct_div');
-        blogDiv.innerHTML = ''; // Clear the current content
-
-        posts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.classList.add('blog-post');
-
-            // Create the title link
-            const title = document.createElement('a');
-            title.href = post.url;
-            title.textContent = post.title;
-            title.classList.add('blog-title');
-
-            // Create the category and date
-            const details = document.createElement('div');
-            details.classList.add('post-details');
-            details.innerHTML = `<span class="category">${post.category}</span> | <span class="date">${post.date}</span>`;
-
-            // Add the elements to the post
-            postElement.appendChild(title);
-            postElement.appendChild(details);
-            blogDiv.appendChild(postElement);
-        });
-    }
-
-    // Call displayPosts initially with all blog posts
-    displayPosts(blogPosts);
-
-    // Event listener for category filtering
-    const categoryFilters = document.querySelectorAll('input[name="construct_group"]');
-    categoryFilters.forEach(input => {
-        input.addEventListener('change', filterPosts);
-    });
-
-    // Event listener for date sorting
-    const dateSorts = document.querySelectorAll('input[name="construct_group"][value="newtoold"], input[name="construct_group"][value="oldtonew"]');
-    dateSorts.forEach(input => {
-        input.addEventListener('change', sortPosts);
-    });
-
-    // Function to filter posts by category
-    function filterPosts() {
-        const selectedCategory = document.querySelector('input[name="construct_group"]:checked').value;
-        const filteredPosts = blogPosts.filter(post => selectedCategory === "all" || post.category === selectedCategory);
-        displayPosts(filteredPosts);
-    }
-
-    // Function to sort posts by date
-    function sortPosts() {
-        const sortOrder = document.querySelector('input[name="construct_group"][value="newtoold"]:checked') ? 'newtoold' : 'oldtonew';
-        const sortedPosts = [...blogPosts].sort((a, b) => {
-            const dateA = new Date(a.date);
-            const dateB = new Date(b.date);
-            return sortOrder === 'newtoold' ? dateB - dateA : dateA - dateB;
-        });
-        displayPosts(sortedPosts);
-    }
-});

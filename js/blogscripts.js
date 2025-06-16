@@ -113,16 +113,12 @@ sent_pages.sort((a, b) => {
 
 
     // Create pages from the sent_pages array, up to the num_pages limit
-    let pages_made = 0;
     for (let i in sent_pages) {
-        pages_made++;
-        if (pages_made > num_pages) {
-            break;
-        }
-        let page_num = sent_pages[i];
-        let page = page_listing[page_num];
-        createBlogFeedEntry(page, page_num, construct_element);
-    }
+    let page_num = sent_pages[i];
+    let page = page_listing[page_num];
+    createBlogFeedEntry(page, page_num, construct_element);
+}
+
 };
 
 // Create a blog feed entry

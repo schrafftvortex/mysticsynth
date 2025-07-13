@@ -37,6 +37,15 @@ const page_listing = {
         var: "4", 
         category: "life" 
     },
+    "005": { 
+        title: "Casual Setup Process", 
+        link: "blog/blog005.html", 
+        displaynum: "005", 
+        date: "2025-07-13 06:52 PM", 
+        excerpt: "Tidying things up",
+        var: "5", 
+        category: "life" 
+    },
 };
 
 let included_pages = [];

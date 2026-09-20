@@ -46,6 +46,15 @@ const page_listing = {
         var: "5", 
         category: "life" 
     },
+    "006": { 
+        title: "Returning to Rest", 
+        link: "blog/blog006.html", 
+        displaynum: "006", 
+        date: "2026-09-19 08:22 PM", 
+        excerpt: "Death Stranding and how my life changed over the 2020s.",
+        var: "6", 
+        category: "gaming" 
+    },
 };
 
 let included_pages = [];

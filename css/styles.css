@@ -125,6 +125,17 @@ p {
 .music-links li a:hover {
     color: #FF7F00; /* Orange on hover */
 }
+
+/* Homepage Latest Blog Posts list */
+.latest-posts a {
+    color: #89CFF0; /* Light blue for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.latest-posts a:hover {
+    color: #FF7F00; /* Orange on hover */
+}
 /* Links Page Styles */
 .links-page {
     display: grid;

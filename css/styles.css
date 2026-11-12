@@ -783,6 +783,7 @@ footer p {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    align-self: stretch; /* Full width so the date lines up on the right */
 }
 
 .blog_feed_entry_end_cont {

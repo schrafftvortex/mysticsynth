@@ -8,6 +8,14 @@ Mystic Synth is a personal static website (hand-written HTML/CSS/vanilla JS, no 
 
 To preview locally, open the HTML files directly or run `python -m http.server` from the repo root.
 
+`_config.yml` lists repo files that GitHub Pages should not publish (currently `CLAUDE.md`).
+
+## Rules
+
+- This is a deliberately hand-built site: keep it plain HTML/CSS/vanilla JS. Don't introduce frameworks, libraries, package managers, or build tools.
+- The author syncs between two Fedora machines through git, so never leave work uncommitted. Commit and push to `main` when a change is done.
+- Post workflow: draft in Markdown in `blog/posts/`, then publish with `new_post.py` (see below).
+
 ## Structure
 
 - Top-level pages (`index.html`, `about.html`, `mymusic.html`, `links.html`, `gallery.html`, `charts.html`, `blog.html`) each duplicate the same `<header>` hero + nav and `<footer>`. There are no includes/templates, so a nav or footer change must be made in every page, including the pages in `blog/`, `charts/`, and `gallery/` (which use `../` relative paths).

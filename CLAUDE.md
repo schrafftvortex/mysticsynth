@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Mystic Synth is a personal static website (hand-written HTML/CSS/vanilla JS, no build step, no dependencies, no tests) served at `mysticsynth.net` via GitHub Pages (see `CNAME`). Deploying means committing and pushing to `main`. `git_push_script.ps1` is the author's Windows helper for add/commit/push; it hardcodes a Windows path and isn't usable here.
+Mystic Synth is a personal static website (hand-written HTML/CSS/vanilla JS, no build step, no dependencies, no tests) served at `mysticsynth.net` via GitHub Pages (see `CNAME`). Deploying means committing and pushing to `main`.
 
 To preview locally, open the HTML files directly or run `python -m http.server` from the repo root.
 
@@ -21,7 +21,7 @@ To preview locally, open the HTML files directly or run `python -m http.server` 
 - Top-level pages (`index.html`, `about.html`, `mymusic.html`, `links.html`, `gallery.html`, `charts.html`, `blog.html`) each duplicate the same `<header>` hero + nav and `<footer>`. There are no includes/templates, so a nav or footer change must be made in every page, including the pages in `blog/`, `charts/`, and `gallery/` (which use `../` relative paths).
 - All pages share `css/styles.css`.
 - `charts/` and `gallery/` are hand-maintained: each entry on `charts.html` / `gallery.html` is a manually written block linking to a subpage and image.
-- `experimental_blog/` is an unused prototype of an alternate blog listing; it isn't linked from the live site.
+- Each page has its own `<title>` in the form `Page Name | Mystic Synth` (the home page is just `Mystic Synth`) and its own meta description. The footer reads `&copy; 2026 Mystic Synth` on every page.
 
 ## Blog system
 

@@ -6,6 +6,7 @@ Run this from your mysticsynth root folder: python new_post.py
 
 import os
 import re
+from html import escape
 from datetime import datetime
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
@@ -38,7 +39,7 @@ def prompt_category():
         print("  Please enter a number from the list.")
 
 
-def build_html(num, num_str, title, date_str, prev_str, next_str):
+def build_html(num, num_str, title, excerpt, date_str, prev_str, next_str):
     """Return the full HTML for a new post."""
 
     prev_link = f'<a href="blog{prev_str}.html" class="nav-button">← Previous</a>\n            ' if prev_str else ''
@@ -49,10 +50,10 @@ def build_html(num, num_str, title, date_str, prev_str, next_str):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mystic Synth - The website you wish you visited 20 years ago.">
+  <meta name="description" content="{escape(excerpt)}">
   <link rel="stylesheet" href="../css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Funnel+Display&display=swap" rel="stylesheet">
-  <title>Blog Post {num_str} | Mystic Synth</title>
+  <title>{escape(title, quote=False)} | Mystic Synth</title>
 </head>
 <body>
 
@@ -185,7 +186,7 @@ def main():
 
     # Write the HTML file
     html_path = os.path.join(BLOG_DIR, f"blog{num_str}.html")
-    html      = build_html(num, num_str, title, display_date, prev_str, next_str)
+    html      = build_html(num, num_str, title, excerpt, display_date, prev_str, next_str)
 
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html)

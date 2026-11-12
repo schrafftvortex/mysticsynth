@@ -769,13 +769,14 @@ footer p {
 .blog_feed_entry_link {
     font-weight: bold;
     font-size: 1.2rem;
-    color: #0066cc;
+    color: #89CFF0; /* Light blue for links */
     margin-bottom: 5px;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .blog_feed_entry_link:hover {
-    text-decoration: underline;
+    color: #FF7F00; /* Orange on hover */
 }
 
 .blog_feed_entry_content {

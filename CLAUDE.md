@@ -20,7 +20,8 @@ To preview locally, open the HTML files directly or run `python -m http.server` 
 
 - Top-level pages (`index.html`, `about.html`, `mymusic.html`, `links.html`, `gallery.html`, `charts.html`, `blog.html`) each duplicate the same `<header>` hero + nav and `<footer>`. There are no includes/templates, so a nav or footer change must be made in every page, including the pages in `blog/`, `charts/`, and `gallery/` (which use `../` relative paths).
 - All pages share `css/styles.css`.
-- `charts/` and `gallery/` are hand-maintained: each entry on `charts.html` / `gallery.html` is a manually written block linking to a subpage and image.
+- `gallery/` is hand-maintained: each album on `gallery.html` is a manually written block linking to a subpage and cover image.
+- **New charts:** run `python3 new_chart.py <image path>` from the repo root (interactive, needs Pillow). It creates the next `charts/postNNN.html` and `charts/photoNNN.jpg` (PNG converted to JPG, max 1200px wide), adds a "Next →" link to the previous chart, and inserts a card at the top of `charts.html`. That insertion depends on the literal text `<main>\n\n` in `charts.html`. Chart pages carry Open Graph tags with absolute `https://mysticsynth.net/...` URLs so shared links preview with the chart image.
 - Each page has its own `<title>` in the form `Page Name | Mystic Synth` (the home page is just `Mystic Synth`) and its own meta description. The footer reads `&copy; 2026 Mystic Synth` on every page.
 
 ## Blog system

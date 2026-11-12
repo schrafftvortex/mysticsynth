@@ -59,11 +59,10 @@ const page_listing = {
 
 let included_pages = [];
 let page_sort = "0"; // "0" means new to old, "1" means old to new
-let num_pages = 0;
 const all_pages = Object.keys(page_listing);
 
 // Create the blog feed
-const createBlogConstruct = function (sortVar = "", numVar = 0) {
+const createBlogConstruct = function (sortVar = "") {
     let construct_element = document.getElementById("blog_construct_div");
 
     // Interpret sorting variable
@@ -97,11 +96,6 @@ const createBlogConstruct = function (sortVar = "", numVar = 0) {
             break;
     }
 
-    // Handle number of pages to display
-    if (numVar !== 0) {
-        num_pages = numVar;
-    }
-
      // Create new array containing content of included_pages, but with a new reference
     let sent_pages = [...included_pages];
 
@@ -117,7 +111,7 @@ const createBlogConstruct = function (sortVar = "", numVar = 0) {
 
 
 
-    // Create pages from the sent_pages array, up to the num_pages limit
+    // Create pages from the sent_pages array
     for (let i in sent_pages) {
     let page_num = sent_pages[i];
     let page = page_listing[page_num];
@@ -137,19 +131,21 @@ const createBlogFeedEntry = function (page, page_num, construct_element) {
     link_div.href = page.link;
     link_div.textContent = page.title || "Untitled Post";
 
-    // Create the title
     let content_div = document.createElement("div");
     content_div.classList.add("blog_feed_entry_content");
+
+    // Create the excerpt
+    if (page.excerpt) {
+        let excerpt_div = document.createElement("p");
+        excerpt_div.classList.add("post-excerpt");
+        excerpt_div.textContent = page.excerpt;
+        content_div.append(excerpt_div);
+    }
 
     // Create the date and time
     let date_div = document.createElement("div");
     date_div.classList.add("blog_feed_entry_end_cont");
-    date_div.textContent = formatDate(page.date || "Unknown Date");
-
-    // Format and display the time in 12-hour AM/PM format
-    const formattedDate = formatDate(page.date);
-    let date_text = document.createTextNode(formattedDate);
-    date_div.appendChild(date_text);
+    date_div.textContent = formatDate(page.date);
 
     content_div.append(date_div);
     entry_div.append(link_div);
@@ -171,71 +167,29 @@ const formatDate = function(dateString) {
     return date.toLocaleString('en-US', options);
 };
 
-// Interpret a page title
-const parseTitle = function (title = "") {
-    let title_div = document.createElement("div");
-    let rVals = [0, 0];
-    let limit = 0;
-    while (rVals[0] !== -1) {
-        limit++;
-        if (limit > 10) {
-            break;
-        }
-
-        rVals = extractTitleTag(title);
-
-        if (rVals[1] !== "") {
-            let title_text = document.createTextNode(rVals[1]);
-            title_div.appendChild(title_text);
-            title = title.replace(rVals[1], "");
-        }
-
-        if (rVals[0] !== -1) {
-            let tagElement = rVals[0];
-            // Add specific logic for handling custom tags
-            title = title.replace(rVals[0], "");
-        }
-    }
-
-    return title_div;
-};
-
-// Extract a tag and preceding text
-const extractTitleTag = function (title = "") {
-    let tagS = title.indexOf("[");
-    if (tagS !== -1) {
-        let tagE = title.indexOf("]");
-        let tag = title.substring(tagS, tagE + 1);
-        let beforeTag = tagS !== 0 ? title.substring(0, tagS) : "";
-        return [tag, beforeTag];
-    } else {
-        return [-1, title];
-    }
-};
-
 // Function to rebuild the blog feed when a radio button is clicked
-const inputEnter = function (radioVal = "", numInput = 0) {
+const inputEnter = function (radioVal = "") {
     let construct_element = document.getElementById("blog_construct_div");
     construct_element.innerHTML = ''; // Clear current feed
-    createBlogConstruct(sortVar = radioVal, numVar = numInput);
+    createBlogConstruct(radioVal);
 };
 
 // Set up radio buttons
 const radios_group_type = document.forms["radio_group_type"].elements["construct_group"];
 for (let radio of radios_group_type) {
     radio.onclick = function () {
-        inputEnter(radioVal = this.value);
+        inputEnter(this.value);
     }
 };
 
 const radios_group_sort = document.forms["radio_group_sort"].elements["construct_group"];
 for (let radio of radios_group_sort) {
     radio.onclick = function () {
-        inputEnter(radioVal = this.value);
+        inputEnter(this.value);
     }
 };
 
 // Initialize blog feed with all posts
-createBlogConstruct("all", 0);
+createBlogConstruct("all");
 
 

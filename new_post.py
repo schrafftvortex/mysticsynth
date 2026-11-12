@@ -5,13 +5,14 @@ Run this from your mysticsynth root folder: python new_post.py
 """
 
 import os
+import json
 import re
 from html import escape
 from datetime import datetime
 
 # ── CONFIG ─────────────────────────────────────────────────────────────────────
 BLOG_DIR      = "blog"
-BLOGSCRIPTS   = "js/blogscripts.js"
+POSTS_JS      = "js/posts.js"
 CATEGORIES    = ["life", "philosophy", "album_recs", "gaming", "movies", "best"]
 # ───────────────────────────────────────────────────────────────────────────────
 
@@ -105,15 +106,14 @@ def build_html(num, num_str, title, excerpt, date_str, prev_str, next_str):
 """
 
 
-def inject_into_blogscripts(js_path, num_str, title, excerpt, category, dt):
-    """Append a new entry to page_listing in blogscripts.js."""
+def inject_into_posts(js_path, num_str, title, excerpt, category, dt):
+    """Append a new entry to page_listing in posts.js."""
     with open(js_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Find the last closing brace of the page_listing object
-    # We look for the pattern };  that closes the const page_listing = { ... };
-    insert_marker = "};\n\nlet included_pages"
-    if insert_marker not in content:
+    # page_listing is the only object in posts.js, so its closing }; is the last one
+    insert_at = content.rfind("\n};")
+    if insert_at == -1:
         print(f"\n⚠️  Could not auto-update {js_path} — please add the entry manually.")
         return False
 
@@ -121,20 +121,17 @@ def inject_into_blogscripts(js_path, num_str, title, excerpt, category, dt):
     num_int = int(num_str)
 
     new_entry = f"""    "{num_str}": {{ 
-        title: "{title}", 
+        title: {json.dumps(title, ensure_ascii=False)}, 
         link: "blog/blog{num_str}.html", 
         displaynum: "{num_str}", 
         date: "{date_formatted}", 
-        excerpt: "{excerpt}",
+        excerpt: {json.dumps(excerpt, ensure_ascii=False)},
         var: "{num_int}", 
         category: "{category}" 
     }},\n"""
 
     # Insert before the closing }; of page_listing
-    updated = content.replace(
-        insert_marker,
-        new_entry + "};\n\nlet included_pages"
-    )
+    updated = content[:insert_at + 1] + new_entry + content[insert_at + 1:]
 
     with open(js_path, "w", encoding="utf-8") as f:
         f.write(updated)
@@ -153,8 +150,8 @@ def main():
         print("    Make sure you run this script from your mysticsynth root folder.")
         return
 
-    if not os.path.isfile(BLOGSCRIPTS):
-        print(f"\n❌  Couldn't find '{BLOGSCRIPTS}'.")
+    if not os.path.isfile(POSTS_JS):
+        print(f"\n❌  Couldn't find '{POSTS_JS}'.")
         print("    Make sure you run this script from your mysticsynth root folder.")
         return
 
@@ -211,10 +208,10 @@ def main():
 
                 print(f"✅  Updated:  {prev_path}  (added Next → link)")
 
-    # Update blogscripts.js
-    success = inject_into_blogscripts(BLOGSCRIPTS, num_str, title, excerpt, category, dt)
+    # Update posts.js
+    success = inject_into_posts(POSTS_JS, num_str, title, excerpt, category, dt)
     if success:
-        print(f"✅  Updated:  {BLOGSCRIPTS}  (added post to index)")
+        print(f"✅  Updated:  {POSTS_JS}  (added post to index)")
 
     print(f"\n🎉  Done! Open {html_path} and write your post.")
     print("    When you're ready, push to GitHub as usual.\n")
